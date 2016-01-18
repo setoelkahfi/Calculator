@@ -38,14 +38,9 @@ public class MainActivity extends AppCompatActivity {
         buttonAddition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (operand1.getText().length() > 0 && operand2.getText().length()>0) {
-                    double number1 = Double.parseDouble(operand1.getText().toString());
-                    double number2 = Double.parseDouble(operand2.getText().toString());
-
-                    double theResult = number1 + number2;
+                if (isDataValid()) {
+                    double theResult = getNumber1() + getNumber2();
                     textResult.setText(Double.toString(theResult));
-                } else {
-                    Toast.makeText(MainActivity.this, "Please enter number in both operand fields", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -53,14 +48,9 @@ public class MainActivity extends AppCompatActivity {
         buttonSubtraction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (operand1.getText().length() > 0 && operand2.getText().length()>0) {
-                    double number1 = Double.parseDouble(operand1.getText().toString());
-                    double number2 = Double.parseDouble(operand2.getText().toString());
-
-                    double theResult = number1 - number2;
+                if (isDataValid()) {
+                    double theResult = getNumber1() - getNumber2();
                     textResult.setText(Double.toString(theResult));
-                } else {
-                    Toast.makeText(MainActivity.this, "Please enter number in both operand fields", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -68,14 +58,9 @@ public class MainActivity extends AppCompatActivity {
         buttonDivision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (operand1.getText().length() > 0 && operand2.getText().length()>0) {
-                    double number1 = Double.parseDouble(operand1.getText().toString());
-                    double number2 = Double.parseDouble(operand2.getText().toString());
-
-                    double theResult = number1 / number2;
+                if (isDataValid()) {
+                    double theResult = getNumber1() / getNumber2();
                     textResult.setText(Double.toString(theResult));
-                } else {
-                    Toast.makeText(MainActivity.this, "Please enter number in both operand fields", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -83,14 +68,9 @@ public class MainActivity extends AppCompatActivity {
         buttonMultiplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (operand1.getText().length() > 0 && operand2.getText().length()>0) {
-                    double number1 = Double.parseDouble(operand1.getText().toString());
-                    double number2 = Double.parseDouble(operand2.getText().toString());
-
-                    double theResult = number1 * number2;
+                if (isDataValid()) {
+                    double theResult = getNumber1() * getNumber2();
                     textResult.setText(Double.toString(theResult));
-                } else {
-                    Toast.makeText(MainActivity.this, "Please enter number in both operand fields", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -98,11 +78,7 @@ public class MainActivity extends AppCompatActivity {
         buttonClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operand1.setText("");
-                operand2.setText("");
-                textResult.setText("0.00");
-
-                operand1.requestFocus();
+                clearInput();
             }
         });
     }
@@ -128,5 +104,28 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private double getNumber1() {
+        return Double.parseDouble(operand1.getText().toString());
+    }
+    private double getNumber2() {
+        return Double.parseDouble(operand2.getText().toString());
+    }
+
+    private boolean isDataValid() {
+        if (operand1.getText().length() > 0 && operand2.getText().length()>0)
+            return true;
+
+        Toast.makeText(MainActivity.this, getString(R.string.validation_text), Toast.LENGTH_LONG).show();
+        return false;
+    }
+
+    private void clearInput(){
+        operand1.setText("");
+        operand2.setText("");
+        textResult.setText("0.00");
+
+        operand1.requestFocus();
     }
 }

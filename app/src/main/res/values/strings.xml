@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="help_instruction">Enter two numbers</string>
     <string name="result_description">The Result</string>
+    <string name="validation_text">Please enter number in both operand fields</string>
 
 </resources>
