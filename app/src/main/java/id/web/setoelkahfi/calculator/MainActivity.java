@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonSubtraction;
     private Button buttonDivision;
     private Button buttonMultiplication;
+    private Button buttonClear;
     private TextView textResult;
 
     @Override
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSubtraction = (Button) findViewById(R.id.buttonSubtraction);
         buttonDivision = (Button) findViewById(R.id.buttonDivision);
         buttonMultiplication = (Button) findViewById(R.id.buttonMultiplication);
+        buttonClear = (Button) findViewById(R.id.buttonClear);
         textResult = (TextView) findViewById(R.id.textResult);
 
         buttonAddition.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +92,17 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(MainActivity.this, "Please enter number in both operand fields", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        buttonClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                operand1.setText("");
+                operand2.setText("");
+                textResult.setText("0.00");
+
+                operand1.requestFocus();
             }
         });
     }
