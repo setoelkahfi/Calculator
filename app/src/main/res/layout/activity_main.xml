@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/editOperand1"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="25dp" />
 
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/editOperand2"
         android:layout_gravity="center_horizontal" />
 
     <LinearLayout
@@ -44,28 +44,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+"
-            android:id="@+id/button"
+            android:id="@+id/buttonAddition"
             style="?android:attr/buttonStyleSmall"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="-"
-            android:id="@+id/button2"
+            android:id="@+id/buttonSubtraction"
             style="?android:attr/buttonStyleSmall" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="/"
-            android:id="@+id/button3"
+            android:id="@+id/buttonDivision"
             style="?android:attr/buttonStyleSmall" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="*"
-            android:id="@+id/button4"
+            android:id="@+id/buttonMultiplication"
             style="?android:attr/buttonStyleSmall" />
     </LinearLayout>
 
@@ -73,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="The Result"
+        android:text="@string/result_description"
         android:id="@+id/textView2"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp" />
@@ -83,7 +83,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="0.00"
-        android:id="@+id/textView3"
+        android:id="@+id/textResult"
         android:gravity="center" />
 
 </LinearLayout>
